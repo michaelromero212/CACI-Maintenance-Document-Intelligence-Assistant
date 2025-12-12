@@ -1,0 +1,26 @@
+MSC MAINTENANCE LOG - LEGACY FORMAT
+Ship: USS Example (MSC-001)
+Report Period: Q1 2024
+Prepared by: Chief Engineer J. Smith
+
+==================================================
+PART/EQUIP    | SYS      | URG | WORK DESC                      | COST$   | BEGIN    | COMPL    | REMARKS
+==================================================
+Pump A-101    | Hydro    | 1   | Bearing/seal replacement       | 2500    | 01/15/24 | 01/18/24 | PM cycle
+Valve V-203   | Steam    | 2   | Seat inspection/cleaning       | 850     | 01/20/24 | 01/21/24 | Minor rust
+Motor M-105   | Prop     | 1   | Insulation rewind              | 15000   | 02/01/24 | 02/15/24 | CRITICAL
+Filter F-012  | Fuel     | 3   | Element swap                   | 320     | 01/25/24 | 01/25/24 | Routine
+Comp C-301    | HVAC     | 2   | Refrig leak fix + recharge     | 4200    | 02/05/24 | 02/08/24 | R-134a
+Gen G-001     | Elec     | 1   | Alt/VR full overhaul           | 28000   | 03/01/24 | 03/20/24 | Major cycle
+HX-04         | Cooling  | 2   | Tube cleaning                  | 1800    | 02/10/24 | 02/12/24 | Eff drop
+Crane C-102   | Deck     | 3   | Cable lube + hook insp         | 650     | 01/30/24 | 01/30/24 | Annual
+Boiler B-201  | Steam    | 1   | Water wall tube replace        | 45000   | 04/01/24 | 04/30/24 | Drydock
+AW-01         | Deck     | 2   | Brake mech overhaul            | 3500    | 02/15/24 | 02/18/24 | Slip issue
+==================================================
+
+NOTES:
+- Priority: 1=High, 2=Medium, 3=Low
+- All costs in USD
+- Drydock period scheduled April 2024
+
+Submitted: 2024-03-01

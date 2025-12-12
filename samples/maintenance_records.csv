@@ -1,0 +1,11 @@
+Component,System,Priority,Action,Cost Estimate,Start Date,End Date,Notes
+Pump A-101,Hydraulic System,High,Replace worn bearings and seals,2500,2024-01-15,2024-01-18,Preventive maintenance scheduled
+Valve V-203,Steam System,Medium,Inspect and clean valve seats,850,2024-01-20,2024-01-21,Minor corrosion observed
+Motor M-105,Propulsion,High,Rewinding required due to insulation failure,15000,2024-02-01,2024-02-15,Critical component
+Filter F-012,Fuel System,Low,Replace filter elements,320,2024-01-25,2024-01-25,Routine replacement
+Compressor C-301,HVAC,Medium,Repair refrigerant leak and recharge,4200,2024-02-05,2024-02-08,R-134a system
+Generator G-001,Electrical,High,Overhaul alternator and voltage regulator,28000,2024-03-01,2024-03-20,Major overhaul cycle
+Heat Exchanger HX-04,Cooling System,Medium,Clean tubes and inspect for fouling,1800,2024-02-10,2024-02-12,Efficiency degradation noted
+Crane C-102,Deck Equipment,Low,Lubricate cables and inspect hooks,650,2024-01-30,2024-01-30,Annual inspection
+Boiler B-201,Steam System,High,Replace water wall tubes,45000,2024-04-01,2024-04-30,Scheduled during dry dock
+Anchor Windlass AW-01,Deck Equipment,Medium,Overhaul brake mechanism,3500,2024-02-15,2024-02-18,Slipping observed during tests
