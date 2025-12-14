@@ -56,6 +56,43 @@ async def list_documents(
     return result
 
 
+@router.delete("/documents/{document_id}")
+async def delete_document(
+    document_id: UUID,
+    db: Session = Depends(get_db)
+):
+    """
+    Delete a document and all associated records and anomalies.
+    """
+    import os
+    
+    document = db.query(Document).filter(Document.id == document_id).first()
+    
+    if not document:
+        raise HTTPException(status_code=404, detail="Document not found")
+    
+    # Delete associated anomalies and records (cascade should handle this, but be explicit)
+    db.query(Anomaly).filter(Anomaly.document_id == document_id).delete()
+    db.query(ExtractedRecord).filter(ExtractedRecord.document_id == document_id).delete()
+    
+    # Delete the document
+    db.delete(document)
+    db.commit()
+    
+    # Try to delete the uploaded file
+    upload_dir = os.getenv("UPLOAD_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "uploads"))
+    for ext in ['.pdf', '.xlsx', '.xls', '.csv', '.txt', '.log']:
+        file_path = os.path.join(upload_dir, f"{document_id}{ext}")
+        if os.path.exists(file_path):
+            try:
+                os.remove(file_path)
+            except:
+                pass
+            break
+    
+    return {"message": "Document deleted", "id": str(document_id)}
+
+
 @router.get("/documents/{document_id}", response_model=DocumentDetail)
 async def get_document(
     document_id: UUID,

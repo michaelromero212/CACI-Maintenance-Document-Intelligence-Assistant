@@ -233,9 +233,34 @@ This demo runs in a local development environment. For deployment in a **secure 
 ├── docs/
 │   └── images/               # Screenshots
 ├── samples/                  # Test data
+│   └── demo/                 # Demo documents for presentations
 ├── docker-compose.yml
 └── README.md
 ```
+
+---
+
+## Demo Documents
+
+Ready-to-use sample documents are provided in `samples/demo/` for demonstrations:
+
+| Document | Type | Description |
+|----------|------|-------------|
+| `quarterly_propulsion_report.txt` | Text Log | Ship propulsion system maintenance report with 12 items |
+| `hvac_inspection_log.csv` | CSV | HVAC system inspection records with various statuses |
+| `electrical_systems_maintenance.csv` | CSV | Electrical system maintenance records |
+| `emergency_work_orders.txt` | Text Log | High-priority emergency work orders |
+| `deck_equipment_legacy.xlsx` | Legacy Excel | Non-standard column format to demo legacy converter |
+
+### Running a Demo
+
+1. Start the application (`docker-compose up` or local dev servers)
+2. Navigate to **Upload** page
+3. Select a demo document from `samples/demo/`
+4. Watch the AI extraction process (loading indicators will display)
+5. View extracted records on the **Dashboard** and **Document Detail** pages
+
+> The legacy Excel file (`deck_equipment_legacy.xlsx`) uses non-standard column names like "EQUIP", "COST$", "URG" to demonstrate the intelligent column mapping feature.
 
 ---
 

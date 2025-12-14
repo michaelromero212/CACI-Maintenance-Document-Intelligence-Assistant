@@ -1,0 +1,52 @@
+MSC PROPULSION SYSTEMS - QUARTERLY MAINTENANCE REPORT
+Ship: USNS Watkins (T-AKE 5)
+Reporting Period: Q4 2024 (October - December)
+Prepared by: Chief Engineer Rodriguez
+Classification: UNCLASSIFIED
+
+==============================================================================
+EXECUTIVE SUMMARY
+==============================================================================
+This report documents all propulsion system maintenance activities performed
+during Q4 2024. The vessel completed scheduled drydock availability on
+November 15, 2024, with all major propulsion components serviced.
+
+Total Maintenance Items: 12
+High Priority Actions: 4
+Estimated Total Cost: $187,500
+
+==============================================================================
+MAINTENANCE LOG
+==============================================================================
+
+COMPONENT      | SYSTEM       | PRI | ACTION                           | COST     | START     | END       | NOTES
+-----------------------------------------------------------------------------
+Main Engine 1  | Propulsion   | 1   | Cylinder liner replacement       | 45000    | 10/05/24  | 10/20/24  | Critical wear detected
+Main Engine 2  | Propulsion   | 2   | Fuel injector overhaul           | 12500    | 10/08/24  | 10/12/24  | Scheduled PM
+Reduction Gear | Propulsion   | 1   | Bearing inspection/replacement   | 28000    | 11/01/24  | 11/08/24  | Unusual vibration noted
+Stern Tube     | Propulsion   | 2   | Seal replacement                 | 8500     | 11/10/24  | 11/12/24  | Minor seepage observed
+Prop Shaft     | Propulsion   | 3   | Alignment verification           | 2500     | 11/13/24  | 11/13/24  | Post-drydock check
+CPP System     | Propulsion   | 1   | Hydraulic pump rebuild           | 18000    | 11/15/24  | 11/22/24  | Pressure drop issue
+Thrust Bearing | Propulsion   | 2   | Clearance adjustment             | 4500     | 11/20/24  | 11/21/24  | Within tolerance limits
+Turbocharger A | Propulsion   | 1   | Cartridge replacement            | 35000    | 12/01/24  | 12/08/24  | Exhaust temp high
+Turbocharger B | Propulsion   | 3   | Inspection only                  | 1500     | 12/01/24  | 12/02/24  | Good condition
+Lube Oil Ctr   | Propulsion   | 2   | Purifier overhaul                | 6500     | 12/05/24  | 12/08/24  | Efficiency degraded
+Fuel Transfer  | Propulsion   | 3   | Pump seal replacement            | 3200     | 12/10/24  | 12/11/24  | Preventive maint
+Exhaust System | Propulsion   | 2   | Expansion joint renewal          | 22300    | 12/12/24  | 12/18/24  | Corrosion found
+
+==============================================================================
+PRIORITY LEGEND
+==============================================================================
+Priority 1 (HIGH): Mission-critical, immediate action required
+Priority 2 (MEDIUM): Important, schedule within 30 days
+Priority 3 (LOW): Routine maintenance, schedule as convenient
+
+==============================================================================
+OUTSTANDING ITEMS FOR Q1 2025
+==============================================================================
+- Main Engine 1 governor calibration (scheduled Jan 2025)
+- Sea chest cleaning (pending next drydock)
+- Controllable pitch propeller blade inspection
+
+Submitted: 2024-12-20
+Approved by: CAPT Williams, Commanding Officer

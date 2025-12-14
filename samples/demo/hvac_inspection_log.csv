@@ -1,0 +1,13 @@
+Component,System,Priority,Maintenance Action,Cost Estimate,Start Date,End Date,Status,Technician,Notes
+AC Unit Bridge,HVAC,Medium,Compressor refrigerant recharge,1250,2024-11-05,2024-11-05,Complete,HT2 Martinez,R-410A system - 2 lbs added
+Ventilation Fan FWD,HVAC,High,Motor bearing replacement,3200,2024-11-08,2024-11-10,Complete,MM1 Johnson,Excessive noise reported by watchstanders
+Chiller Unit 1,HVAC,High,Condenser tube cleaning,4500,2024-11-12,2024-11-15,Complete,HT1 Chen,30% efficiency drop noted
+Chiller Unit 2,HVAC,Low,Routine inspection,450,2024-11-12,2024-11-12,Complete,HT3 Williams,All parameters normal
+Duct Work Section 4,HVAC,Medium,Insulation repair,890,2024-11-18,2024-11-19,Complete,HT2 Martinez,Condensation damage repair
+Air Handler Engine Rm,HVAC,High,Filter replacement and coil cleaning,1100,2024-11-20,2024-11-21,Complete,HT3 Williams,Restricted airflow corrected
+Exhaust Fan Galley,HVAC,Medium,Belt tensioning and inspection,280,2024-11-22,2024-11-22,Complete,MM3 Davis,Slipping belt replaced
+AC Unit Crew Quarters,HVAC,Low,Thermostat calibration,175,2024-11-25,2024-11-25,Complete,HT2 Martinez,Temperature variance corrected
+Supply Fan AFT,HVAC,High,Complete motor rebuild,5600,2024-11-28,2024-12-05,Complete,MM1 Johnson,Winding insulation failure
+Refrigeration Unit Stores,HVAC,Medium,Compressor valve plate replacement,2200,2024-12-02,2024-12-04,In-Progress,HT1 Chen,Awaiting parts delivery
+Chiller Unit 1,HVAC,Low,Control panel inspection,320,2024-12-08,2024-12-08,Open,HT3 Williams,Scheduled PM
+Fresh Air Intake,HVAC,Medium,Damper actuator replacement,780,2024-12-10,2024-12-11,Open,MM3 Davis,Automated control not responding

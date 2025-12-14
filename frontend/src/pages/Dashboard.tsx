@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import StatusBadge from '../components/StatusBadge';
-import { getDocuments, getStatusOverview } from '../api/client';
+import { getDocuments, getStatusOverview, deleteDocument } from '../api/client';
 import type { Document, StatusOverview } from '../api/types';
 
 export default function Dashboard() {
@@ -9,6 +9,7 @@ export default function Dashboard() {
     const [statusOverview, setStatusOverview] = useState<StatusOverview | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [deleting, setDeleting] = useState<string | null>(null);
 
     useEffect(() => {
         async function loadData() {
@@ -43,6 +44,24 @@ export default function Dashboard() {
             hour: '2-digit',
             minute: '2-digit'
         });
+    };
+
+    const handleDelete = async (doc: Document) => {
+        if (!confirm(`Delete "${doc.filename}"? This will remove all extracted records and cannot be undone.`)) {
+            return;
+        }
+        try {
+            setDeleting(doc.id);
+            await deleteDocument(doc.id);
+            setDocuments(prev => prev.filter(d => d.id !== doc.id));
+            // Refresh the status overview
+            const overview = await getStatusOverview();
+            setStatusOverview(overview);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Delete failed');
+        } finally {
+            setDeleting(null);
+        }
     };
 
     if (loading) {
@@ -275,6 +294,18 @@ export default function Dashboard() {
                                                         CAP
                                                     </Link>
                                                 )}
+                                                <button
+                                                    className="btn btn-sm"
+                                                    onClick={() => handleDelete(doc)}
+                                                    disabled={deleting === doc.id}
+                                                    style={{
+                                                        background: 'var(--color-error-100)',
+                                                        color: 'var(--color-error-600)',
+                                                        border: '1px solid var(--color-error-300)'
+                                                    }}
+                                                >
+                                                    {deleting === doc.id ? '...' : '✕'}
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>

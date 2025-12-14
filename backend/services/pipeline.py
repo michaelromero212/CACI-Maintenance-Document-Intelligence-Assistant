@@ -13,7 +13,7 @@ from services.normalizer import DataNormalizer
 from services.anomaly_detector import AnomalyDetector
 
 
-UPLOAD_DIR = os.getenv("UPLOAD_DIR", "/app/uploads")
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", os.path.join(os.path.dirname(__file__), "..", "uploads"))
 
 
 class IngestionPipeline:

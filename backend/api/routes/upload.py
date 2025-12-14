@@ -12,7 +12,7 @@ from models.schemas import DocumentResponse
 
 router = APIRouter()
 
-UPLOAD_DIR = os.getenv("UPLOAD_DIR", "/app/uploads")
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "uploads"))
 ALLOWED_EXTENSIONS = {".pdf", ".xlsx", ".xls", ".csv", ".txt", ".log"}
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
 
@@ -50,6 +50,14 @@ async def upload_file(
         raise HTTPException(
             status_code=400,
             detail=f"File too large. Maximum size: {MAX_FILE_SIZE // (1024*1024)}MB"
+        )
+    
+    # Check for duplicate filename
+    existing = db.query(Document).filter(Document.filename == file.filename).first()
+    if existing:
+        raise HTTPException(
+            status_code=409,
+            detail=f"A document with filename '{file.filename}' already exists. Delete it first or rename your file."
         )
     
     # Generate unique filename

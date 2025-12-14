@@ -77,6 +77,13 @@ export async function ingestDocument(id: string): Promise<{ message: string; doc
     return handleResponse(response);
 }
 
+export async function deleteDocument(id: string): Promise<{ message: string; id: string }> {
+    const response = await fetch(`${API_BASE}/documents/${id}`, {
+        method: 'DELETE',
+    });
+    return handleResponse(response);
+}
+
 // Legacy conversion
 export async function convertLegacyExcel(file: File): Promise<LegacyConversionResult> {
     const formData = new FormData();
