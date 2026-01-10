@@ -130,7 +130,7 @@ class LLMExtractor:
                         cost_str = match.group(0).replace('$', '').replace(',', '')
                         try:
                             record['cost_estimate'] = float(cost_str)
-                        except:
+                        except ValueError:
                             pass
                         break
                 
@@ -207,7 +207,7 @@ class LLMExtractor:
             try:
                 dt = datetime.strptime(s, fmt)
                 return dt.strftime('%Y-%m-%d')
-            except:
+            except ValueError:
                 continue
         
         return None
@@ -225,5 +225,5 @@ class LLMExtractor:
             if s.lower() == 'null':
                 return None
             return float(s)
-        except:
+        except ValueError:
             return None

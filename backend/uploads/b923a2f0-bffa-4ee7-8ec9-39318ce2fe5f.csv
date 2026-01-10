@@ -1,0 +1,13 @@
+Component,System,Priority,Action,Cost Estimate,Start Date,End Date,Notes
+Ship Service Generator 1,Electrical,High,Voltage regulator replacement,12500,2024-10-15,2024-10-20,AVR failure during sea trial
+Ship Service Generator 2,Electrical,Medium,Brush inspection and replacement,2800,2024-10-18,2024-10-19,Scheduled PM cycle
+Main Switchboard,Electrical,High,Circuit breaker overhaul,8900,2024-10-22,2024-10-28,Intermittent trip condition
+Shore Power Panel,Electrical,Low,Cable insulation testing,650,2024-10-25,2024-10-25,Annual certification
+Emergency Switchboard,Electrical,High,Transfer switch repair,5400,2024-11-01,2024-11-05,Failed to auto-transfer
+Battery Bank 1,Electrical,Medium,Load bank testing and cell replacement,3200,2024-11-08,2024-11-10,Three cells below capacity
+UPS System Bridge,Electrical,Medium,Capacitor bank replacement,4100,2024-11-12,2024-11-14,Output voltage fluctuation
+Steering Motor,Electrical,High,Rewinding due to water damage,18500,2024-11-15,2024-11-28,Salt water intrusion
+Bow Thruster Motor,Electrical,Low,Insulation resistance testing,480,2024-11-20,2024-11-20,Results satisfactory
+Cargo Crane Motor,Electrical,Medium,Brake coil replacement,1850,2024-11-22,2024-11-24,Holding brake weak
+Navigation Light Panel,Electrical,Low,LED conversion upgrade,2200,2024-11-28,2024-11-30,Energy efficiency improvement
+Galley Equipment,Electrical,Medium,Ground fault repair - steam table,920,2024-12-02,2024-12-03,GFCI tripping repeatedly

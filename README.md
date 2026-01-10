@@ -121,6 +121,39 @@ Flexible document ingestion:
 
 ---
 
+## Engineering Practices
+
+This codebase demonstrates production-ready software engineering practices:
+
+### Backend Quality
+| Practice | Implementation |
+|----------|----------------|
+| **Structured Logging** | Python `logging` module with formatted timestamps and levels |
+| **Specific Exception Handling** | Catch `ValueError`, `OSError`, etc. instead of bare `except:` |
+| **Input Validation** | Pydantic v2 `field_validator` for all AI request models |
+| **Type Hints** | Full type annotations throughout the codebase |
+| **Unit Testing** | 38+ pytest tests covering services, models, and validation |
+
+### Frontend Quality
+| Practice | Implementation |
+|----------|----------------|
+| **TypeScript** | Full type safety across all components |
+| **Error Boundaries** | React Error Boundaries prevent full app crashes |
+| **API Client Pattern** | Centralized API handling with typed responses |
+| **Component Architecture** | Reusable, focused components with clear responsibilities |
+
+### Testing
+```bash
+# Run all backend tests
+cd backend && python3 -m pytest tests/ -v
+
+# Test categories:
+# - DataNormalizer (7 tests)
+# - AnomalyDetector (7 tests)
+# - LegacyConverter (2 tests)
+# - AI Validation (20 tests)
+```
+
 ## Quick Start
 
 ### Prerequisites

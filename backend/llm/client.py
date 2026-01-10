@@ -6,6 +6,10 @@ import re
 from typing import Optional, Dict, Any, List
 from huggingface_hub import InferenceClient
 
+from core.logging import get_logger
+
+logger = get_logger("llm")
+
 
 class LLMClient:
     """
@@ -71,7 +75,7 @@ class LLMClient:
             
         except Exception as e:
             # Log error and return empty for graceful degradation
-            print(f"LLM generation error: {e}")
+            logger.error(f"LLM generation error: {type(e).__name__}: {e}")
             return ""
     
     async def extract_json(
@@ -145,7 +149,7 @@ class LLMClient:
             )
             return True
         except Exception as e:
-            print(f"LLM availability check failed: {type(e).__name__}: {e}")
+            logger.warning(f"LLM availability check failed: {type(e).__name__}: {e}")
             return False
 
 

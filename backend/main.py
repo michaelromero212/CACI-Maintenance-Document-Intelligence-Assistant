@@ -10,6 +10,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from db.database import engine, Base
 from api.routes import upload, documents, ingest, legacy, status, reports, ai
+from core.logging import get_logger
+
+# Initialize logger
+logger = get_logger("main")
 
 
 @asynccontextmanager
@@ -17,16 +21,18 @@ async def lifespan(app: FastAPI):
     """Application lifespan events."""
     # Startup: Create tables if they don't exist
     Base.metadata.create_all(bind=engine)
+    logger.info("Database tables initialized")
     
     # Log AI status on startup
-    import os
     if os.getenv("HF_TOKEN"):
-        print("✓ HF_TOKEN configured - AI features enabled")
+        logger.info("HF_TOKEN configured - AI features enabled")
     else:
-        print("⚠ HF_TOKEN not set - AI features will be limited")
+        logger.warning("HF_TOKEN not set - AI features will be limited")
     
+    logger.info("MDIA Backend started successfully")
     yield
     # Shutdown: cleanup if needed
+    logger.info("MDIA Backend shutting down")
 
 
 app = FastAPI(
@@ -63,3 +69,4 @@ async def health_check():
         "service": "MDIA Backend",
         "version": "1.0.0"
     }
+

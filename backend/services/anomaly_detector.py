@@ -104,13 +104,13 @@ class AnomalyDetector:
             if isinstance(start_date, str):
                 try:
                     start_date = date.fromisoformat(start_date)
-                except:
+                except ValueError:
                     start_date = None
             
             if isinstance(end_date, str):
                 try:
                     end_date = date.fromisoformat(end_date)
-                except:
+                except ValueError:
                     end_date = None
             
             if start_date and end_date:

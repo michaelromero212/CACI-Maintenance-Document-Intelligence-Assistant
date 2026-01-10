@@ -1,0 +1,28 @@
+EMERGENCY WORK ORDER REGISTER
+===============================
+USNS Comfort (T-AH 20)
+Date Generated: 2024-12-14
+Classification: UNCLASSIFIED // FOUO
+
+PRIORITY LEGEND: 1=EMERGENCY, 2=URGENT, 3=PRIORITY
+
+-------------------------------------------------------------------------------
+WO#     | EQUIPMENT       | SYSTEM     | PRI | DESCRIPTION                    | EST COST | STATUS
+-------------------------------------------------------------------------------
+EWO-001 | Fire Pump P-1   | Safety     | 1   | Pump seized - immediate repair | 15000    | Awaiting parts
+EWO-002 | Steering Gear   | Navigation | 1   | Hydraulic leak port side       | 8500     | In progress
+EWO-003 | Potable Water   | Sanitary   | 1   | UV sterilizer failure          | 3200     | Complete
+EWO-004 | Emergency Gen   | Electrical | 1   | Fuel rack binding              | 6800     | In progress
+EWO-005 | Bilge System    | Safety     | 2   | Bilge pump #3 inoperative      | 4200     | Open
+EWO-006 | Anchor Windlass | Deck       | 2   | Brake band worn beyond limit   | 5500     | Awaiting parts
+EWO-007 | Fire Main       | Safety     | 2   | Isolation valve stuck closed   | 1200     | Complete
+EWO-008 | Lifeboat Davit  | Safety     | 1   | Wire rope fraying observed     | 7800     | In progress
+-------------------------------------------------------------------------------
+
+NOTES:
+- All Priority 1 items require completion within 24 hours
+- Duty section must maintain watch logs for all in-progress repairs
+- CHENG approval required for any deviation from repair timeline
+
+SUBMITTED BY: LTJG Thompson, Damage Control Assistant
+REVIEWED BY: CDR Martinez, Chief Engineer

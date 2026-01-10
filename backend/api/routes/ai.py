@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timezone
 from typing import Optional
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 from llm.client import LLMClient
 from llm.prompts import SUMMARY_TEMPLATE
@@ -41,6 +41,27 @@ class AIChatRequest(BaseModel):
     message: str
     document_id: Optional[str] = None
     context: Optional[str] = "maintenance"
+    
+    @field_validator('message')
+    @classmethod
+    def message_must_not_be_empty(cls, v: str) -> str:
+        """Validate that message is not empty or whitespace-only."""
+        if not v or not v.strip():
+            raise ValueError('Message cannot be empty')
+        if len(v.strip()) < 3:
+            raise ValueError('Message must be at least 3 characters')
+        if len(v) > 5000:
+            raise ValueError('Message cannot exceed 5000 characters')
+        return v.strip()
+    
+    @field_validator('context')
+    @classmethod
+    def context_must_be_valid(cls, v: Optional[str]) -> str:
+        """Validate that context is a known value."""
+        valid_contexts = {'maintenance', 'general', 'analysis'}
+        if v and v.lower() not in valid_contexts:
+            raise ValueError(f'Context must be one of: {", ".join(valid_contexts)}')
+        return v.lower() if v else 'maintenance'
 
 
 class AIChatResponse(BaseModel):
@@ -53,7 +74,16 @@ class AIChatResponse(BaseModel):
 class AIAnalyzeRequest(BaseModel):
     """Request for document analysis."""
     document_id: str
-    analysis_type: str = "summary"  # "summary", "risks", "priorities"
+    analysis_type: str = "summary"
+    
+    @field_validator('analysis_type')
+    @classmethod
+    def analysis_type_must_be_valid(cls, v: str) -> str:
+        """Validate that analysis_type is supported."""
+        valid_types = {'summary', 'risks', 'priorities'}
+        if v.lower() not in valid_types:
+            raise ValueError(f'analysis_type must be one of: {", ".join(valid_types)}')
+        return v.lower()
 
 
 class AIAnalyzeResponse(BaseModel):

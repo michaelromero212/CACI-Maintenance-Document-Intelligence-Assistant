@@ -49,8 +49,8 @@ class CAPGenerator:
             
             if response and len(response) > 100:
                 return response
-        except:
-            pass
+        except Exception:
+            pass  # Fall through to template generation
         
         # Fallback to template generation
         return self._generate_template_cap(document, records)

@@ -197,8 +197,8 @@ class LegacyConverter:
                         'description': f'Start date ({start}) is after end date ({end})',
                         'fix': 'Verify and correct date sequence'
                     })
-            except:
-                pass
+            except (ValueError, TypeError):
+                pass  # Date comparison not possible
         
         # Check cost estimate
         cost = data.get('cost_estimate')
@@ -213,7 +213,7 @@ class LegacyConverter:
                         'description': f'Unusually high cost estimate: ${cost_val:,.2f}',
                         'fix': 'Verify cost value is correct'
                     })
-            except:
+            except (ValueError, TypeError):
                 issues.append({
                     'type': 'parse_error',
                     'severity': 'low',
@@ -250,7 +250,7 @@ class LegacyConverter:
             # Remove currency symbols and commas
             cleaned = re.sub(r'[$,\s]', '', str(value))
             return float(cleaned)
-        except:
+        except (ValueError, TypeError):
             return None
     
     def _parse_date(self, value: Optional[str]):
@@ -271,7 +271,7 @@ class LegacyConverter:
         for fmt in formats:
             try:
                 return datetime.strptime(str(value).strip(), fmt).date()
-            except:
+            except ValueError:
                 continue
         
         return None

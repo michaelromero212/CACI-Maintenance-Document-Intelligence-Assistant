@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import ErrorBoundary from './components/ErrorBoundary'
 import Dashboard from './pages/Dashboard'
 import Upload from './pages/Upload'
 import DocumentDetail from './pages/DocumentDetail'
@@ -10,21 +11,22 @@ import AIAssistant from './pages/AIAssistant'
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Dashboard />} />
-                    <Route path="upload" element={<Upload />} />
-                    <Route path="documents/:id" element={<DocumentDetail />} />
-                    <Route path="status-board" element={<StatusBoard />} />
-                    <Route path="ai-assistant" element={<AIAssistant />} />
-                    <Route path="reports/summary/:id" element={<SummaryReport />} />
-                    <Route path="reports/cap/:id" element={<CorrectiveActionPlan />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <ErrorBoundary>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Dashboard />} />
+                        <Route path="upload" element={<Upload />} />
+                        <Route path="documents/:id" element={<DocumentDetail />} />
+                        <Route path="status-board" element={<StatusBoard />} />
+                        <Route path="ai-assistant" element={<AIAssistant />} />
+                        <Route path="reports/summary/:id" element={<SummaryReport />} />
+                        <Route path="reports/cap/:id" element={<CorrectiveActionPlan />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </ErrorBoundary>
     )
 }
 
 export default App
-

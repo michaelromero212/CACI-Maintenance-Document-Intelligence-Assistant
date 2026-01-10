@@ -3,7 +3,7 @@
 import re
 from datetime import datetime, date
 from typing import Any, Optional, Dict
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 
 
 class DataNormalizer:
@@ -164,7 +164,7 @@ class DataNormalizer:
         
         try:
             return Decimal(s)
-        except:
+        except (ValueError, InvalidOperation):
             return None
     
     def normalize_component_name(self, value: str) -> str:

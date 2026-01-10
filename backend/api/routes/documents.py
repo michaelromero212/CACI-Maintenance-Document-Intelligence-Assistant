@@ -86,8 +86,8 @@ async def delete_document(
         if os.path.exists(file_path):
             try:
                 os.remove(file_path)
-            except:
-                pass
+            except OSError:
+                pass  # File deletion is non-critical
             break
     
     return {"message": "Document deleted", "id": str(document_id)}
