@@ -6,6 +6,7 @@ import DocumentDetail from './pages/DocumentDetail'
 import StatusBoard from './pages/StatusBoard'
 import SummaryReport from './pages/SummaryReport'
 import CorrectiveActionPlan from './pages/CorrectiveActionPlan'
+import AIAssistant from './pages/AIAssistant'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="upload" element={<Upload />} />
                     <Route path="documents/:id" element={<DocumentDetail />} />
                     <Route path="status-board" element={<StatusBoard />} />
+                    <Route path="ai-assistant" element={<AIAssistant />} />
                     <Route path="reports/summary/:id" element={<SummaryReport />} />
                     <Route path="reports/cap/:id" element={<CorrectiveActionPlan />} />
                 </Route>
@@ -25,3 +27,4 @@ function App() {
 }
 
 export default App
+

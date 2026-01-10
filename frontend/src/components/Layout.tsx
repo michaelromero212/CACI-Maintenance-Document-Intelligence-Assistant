@@ -1,4 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
+import AIStatusIndicator from './AIStatusIndicator';
 
 export default function Layout() {
     return (
@@ -62,7 +63,18 @@ export default function Layout() {
                                 Status Board
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/ai-assistant"
+                                className={({ isActive }) => `nav-link nav-link--ai ${isActive ? 'active' : ''}`}
+                            >
+                                🤖 AI Assistant
+                            </NavLink>
+                        </li>
                     </ul>
+
+                    {/* AI Status Indicator */}
+                    <AIStatusIndicator />
                 </div>
             </nav>
 
@@ -80,3 +92,4 @@ export default function Layout() {
         </div>
     );
 }
+

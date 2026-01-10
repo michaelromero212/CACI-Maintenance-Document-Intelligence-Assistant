@@ -11,25 +11,27 @@ class LLMClient:
     """
     Client for interacting with Hugging Face Inference API.
     
-    Uses free Mistral-7B-Instruct model by default.
+    Uses meta-llama/Llama-3.2-3B-Instruct model for reliable access via serverless inference.
     """
     
-    DEFAULT_MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
+    # Use a serverless model that's reliably available
+    DEFAULT_MODEL = "meta-llama/Llama-3.2-3B-Instruct"
     
     def __init__(self, model: Optional[str] = None):
         """
         Initialize LLM client.
         
         Args:
-            model: Hugging Face model ID (defaults to Mistral-7B)
+            model: Hugging Face model ID
         """
         self.model = model or self.DEFAULT_MODEL
         self.token = os.getenv("HF_TOKEN")
         
+        # Initialize the client - it will use serverless inference API
         if self.token:
-            self.client = InferenceClient(token=self.token)
+            self.client = InferenceClient(model=self.model, token=self.token)
         else:
-            self.client = InferenceClient()
+            self.client = InferenceClient(model=self.model)
     
     async def generate(
         self,
@@ -138,9 +140,12 @@ class LLMClient:
             # Quick test with minimal tokens
             response = self.client.chat_completion(
                 model=self.model,
-                messages=[{"role": "user", "content": "test"}],
-                max_tokens=5
+                messages=[{"role": "user", "content": "Say hello"}],
+                max_tokens=10
             )
             return True
-        except:
+        except Exception as e:
+            print(f"LLM availability check failed: {type(e).__name__}: {e}")
             return False
+
+

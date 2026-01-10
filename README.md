@@ -20,6 +20,7 @@ MDIA leverages AI-powered document processing to:
 - **Detect anomalies** in data quality (missing fields, date inconsistencies, extreme values)
 - **Track status** of maintenance items through their lifecycle
 - **Generate reports** including Corrective Action Plans (CAPs)
+- **AI Assistant** for intelligent Q&A about maintenance documents and priorities
 
 ---
 
@@ -73,6 +74,20 @@ Flexible document ingestion:
 - Support for PDF, Excel, CSV, and log files
 - Legacy Excel conversion mode for old-format MSC spreadsheets
 - Automatic AI extraction on upload
+
+---
+
+### AI Assistant
+<p align="center">
+  <img src="docs/images/ai-assistant.jpg" alt="AI Assistant" width="800">
+</p>
+
+**NEW!** Interactive AI-powered chat assistant:
+- Real-time AI status indicator showing model connectivity
+- Natural language queries about maintenance documents
+- Document-aware responses when context is selected
+- Quick action buttons for instant analysis (Summarize, Find Risks, Prioritize)
+- Powered by Hugging Face's Llama-3.2-3B-Instruct model
 
 ---
 
@@ -151,6 +166,9 @@ docker-compose up --build
 | `GET` | `/status/overview` | Get status statistics |
 | `GET` | `/report/summary` | Generate summary report |
 | `GET` | `/report/cap` | Generate Corrective Action Plan |
+| `GET` | `/ai/status` | Check AI model connectivity |
+| `POST` | `/ai/chat` | Send message to AI assistant |
+| `POST` | `/ai/analyze` | AI analysis of document |
 
 ---
 

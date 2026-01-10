@@ -8,6 +8,11 @@ import type {
     SummaryReport,
     CAPReport,
     LegacyConversionResult,
+    AIStatus,
+    AIChatRequest,
+    AIChatResponse,
+    AIAnalyzeRequest,
+    AIAnalyzeResponse,
 } from './types';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
@@ -149,4 +154,29 @@ export async function getCAPReport(documentId: string): Promise<CAPReport> {
     return handleResponse(response);
 }
 
+// AI Functions
+export async function getAIStatus(): Promise<AIStatus> {
+    const response = await fetch(`${API_BASE}/ai/status`);
+    return handleResponse(response);
+}
+
+export async function sendAIMessage(request: AIChatRequest): Promise<AIChatResponse> {
+    const response = await fetch(`${API_BASE}/ai/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request),
+    });
+    return handleResponse(response);
+}
+
+export async function getAIAnalysis(request: AIAnalyzeRequest): Promise<AIAnalyzeResponse> {
+    const response = await fetch(`${API_BASE}/ai/analyze`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request),
+    });
+    return handleResponse(response);
+}
+
 export { ApiError };
+

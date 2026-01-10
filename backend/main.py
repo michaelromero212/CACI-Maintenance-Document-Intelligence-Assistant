@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from db.database import engine, Base
-from api.routes import upload, documents, ingest, legacy, status, reports
+from api.routes import upload, documents, ingest, legacy, status, reports, ai
 
 
 @asynccontextmanager
@@ -17,6 +17,14 @@ async def lifespan(app: FastAPI):
     """Application lifespan events."""
     # Startup: Create tables if they don't exist
     Base.metadata.create_all(bind=engine)
+    
+    # Log AI status on startup
+    import os
+    if os.getenv("HF_TOKEN"):
+        print("✓ HF_TOKEN configured - AI features enabled")
+    else:
+        print("⚠ HF_TOKEN not set - AI features will be limited")
+    
     yield
     # Shutdown: cleanup if needed
 
@@ -44,6 +52,7 @@ app.include_router(ingest.router, tags=["Ingestion"])
 app.include_router(legacy.router, tags=["Legacy Conversion"])
 app.include_router(status.router, tags=["Status"])
 app.include_router(reports.router, tags=["Reports"])
+app.include_router(ai.router, tags=["AI"])
 
 
 @app.get("/health")

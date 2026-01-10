@@ -90,3 +90,38 @@ export interface LegacyConversionResult {
     column_mappings: Record<string, string>;
     message: string;
 }
+
+// AI-related types
+export interface AIStatus {
+    status: 'connected' | 'disconnected' | 'error';
+    model: string;
+    has_token: boolean;
+    response_time_ms: number | null;
+    last_check: string;
+    message: string;
+}
+
+export interface AIChatRequest {
+    message: string;
+    document_id?: string;
+    context?: string;
+}
+
+export interface AIChatResponse {
+    response: string;
+    tokens_used: number | null;
+    processing_time_ms: number;
+}
+
+export interface AIAnalyzeRequest {
+    document_id: string;
+    analysis_type: 'summary' | 'risks' | 'priorities';
+}
+
+export interface AIAnalyzeResponse {
+    document_id: string;
+    analysis_type: string;
+    analysis: string;
+    processing_time_ms: number;
+}
+
